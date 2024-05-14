@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+  <script>// Crear la sección principal
+    const section = document.createElement('section');
+    section.classList.add('img-fondo');
+    
+    // Crear la imagen del fondo
+    const imgFondo = document.createElement('img');
+    imgFondo.src = '../recursos/fotos/fondo.jpg';
+    imgFondo.alt = 'train';
+    section.appendChild(imgFondo);
+    
+    // Crear el fieldset
+    const fieldset = document.createElement('fieldset');
+    fieldset.classList.add('celda');
+    
+    // Crear la imagen del avión
+    const imgAvion = document.createElement('img');
+    imgAvion.src = '../recursos/fotos/avion.png';
+    imgAvion.alt = 'avion';
+    imgAvion.style.height = '60px';
+    imgAvion.style.width = '60px';
+    fieldset.appendChild(imgAvion);
+    
+    // Crear el título "TRAVEL"
+    const h3Travel = document.createElement('h3');
+    h3Travel.textContent = 'TRAVEL';
+    fieldset.appendChild(h3Travel);
+    
+    // Crear los enlaces HOME, SERVICES, EVENTS, ABOUTS y CONTACTS
+    const enlaces = ['HOME', 'SERVICES', 'EVENTS', 'ABOUTS', 'CONTACTS'];
+    enlaces.forEach(function(textoEnlace) {
+        const enlace = document.createElement('a');
+        enlace.href = '#';
+        enlace.textContent = textoEnlace;
+        fieldset.appendChild(enlace);
+        if (textoEnlace !== 'CONTACTS') {
+            const espacio = document.createTextNode(' - ');
+            fieldset.appendChild(espacio);
+        }
+    });
+    
+    // Agregar el fieldset a la sección principal
+    section.appendChild(fieldset);
+    
+    // Crear los artículos para cada destino
+    const destinos = ['Venice Italy', 'ITALY', 'FRANCE', 'GERMANY', 'SPAIN'];
+    const descripciones = [
+        'Travel is free responsive template by templatemo. All images use in this template are from Unisplash.',
+        'Rome, Milan, Naples',
+        'Rome, Milan, Naples',
+        'Rome, Milan, Naples',
+        'Rome, Milan, Naples'
+    ];
+    const precios = ['$8,450', '$1800 BOOK NOW', '$1800 BOOK NOW', '$1800 BOOK NOW', '$1800 BOOK NOW'];
+    const coloresPrecios = ['black', '#9fd133', '#9fd133', '#9fd133', '#9fd133'];
+    
+    for (let i = 0; i < destinos.length; i++) {
+        const articulo = document.createElement('div');
+        articulo.classList.add('articulo');
+    
+        const titulo = document.createElement('h3');
+        titulo.style.color = coloresPrecios[i];
+        titulo.textContent = destinos[i];
+        articulo.appendChild(titulo);
+    
+        const descripcion = document.createElement('p');
+        descripcion.textContent = descripciones[i];
+        articulo.appendChild(descripcion);
+    
+        if (i === 0) {
+            const precio = document.createElement('span');
+            precio.classList.add('precio');
+            precio.style.fontSize = '25px';
+            precio.textContent = precios[i];
+            articulo.appendChild(precio);
+        } else {
+            const botonLugares = document.createElement('a');
+            botonLugares.href = '#';
+            botonLugares.classList.add('boton-lugares');
+            botonLugares.textContent = precios[i];
+            articulo.appendChild(botonLugares);
+        }
+    
+        section.appendChild(articulo);
+    }
+    
+    // Agregar la sección al cuerpo del documento
+    document.body.appendChild(section);
+    
+        </script>
+       
+</body>
